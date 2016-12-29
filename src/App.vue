@@ -4,11 +4,37 @@
     <show-view :new-task="newTask"
                :doing="doing"></show-view>
     <div v-show="pageNewTask">
-      <h1>newTask</h1>
+
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" placeholder="bookmark" aria-describedby="sizing-addon2" v-model="bookmark">
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <iframe  class="renderHtml" :src="bookmark"></iframe>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div v-show="pageDoing">
-      <h1>Doing</h1>
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <iframe src="https://www.movie2free.com/page/3/"></iframe>
+          </div>
+        </div>
+      </div> -->
     </div>
 
   </div>
@@ -27,7 +53,8 @@ export default {
     return {
       keyword: '',
       pageNewTask: false,
-      pageDoing: false
+      pageDoing: false,
+      bookmark: ''
     }
   },
   methods: {
@@ -84,6 +111,11 @@ body {
    color: white;
 }
 
+.renderHtml {
+  width: 100%;
+    height: 100vh;
+    border: 10px solid white;
+}
 
 
 </style>
